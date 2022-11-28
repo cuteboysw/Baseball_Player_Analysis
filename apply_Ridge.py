@@ -30,7 +30,7 @@ class apply_Ridge:
         print('\n===================PITCHER=================')
 
         csvp = pd.read_csv('.\dataset\Dataset_Pitcher_.csv')
-        valcsvp=pd.read_csv('.\dataset\Vaildation_Pitcher_.csv')
+        valcsvp=pd.read_csv('.\dataset\Validation_Pitcher_.csv')
 
         datap = csvp[["연도","생년월일","ERA","G","W","L","SV","HLD","WPCT","H","HR","BB","HBP","SO","R","ER","WHIP"]]
         labelp = csvp["연봉(만원)"]
