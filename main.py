@@ -86,10 +86,10 @@ df=pd.DataFrame({'예상연봉': predict_pitcher}).to_csv('.\\result\\decisionTr
 errrate_bat=np.concatenate((errrate_bat, (predict_batter-batcorrect)/predict_batter), axis=0)
 errrate_pit=np.concatenate((errrate_pit, (predict_pitcher-pitcorrect)/predict_pitcher), axis=0)
 
-print(errrate_bat)
-
 #Error Rate
 alg_list=['SGD', 'Linear Regression', 'Lasso', 'Ridge', 'Logistic Regression', 'k-neighbors_regression', 'Decision Tree']   #Regression Algorithm List
-df=pd.DataFrame(errrate_bat.reshape(-1, 7), columns=alg_list).to_csv('.\\result\\error_rate_batter.csv')
-df=pd.DataFrame(errrate_pit).to_csv('.\\result\\error_rate_pitcher.csv')
+errrate_bat=errrate_bat.reshape(-1, 7)
+errrate_pit=errrate_pit.reshape(-1, 7)
+df=pd.DataFrame(errrate_bat, columns=alg_list).to_csv('.\\result\\error_rate_batter.csv')
+df=pd.DataFrame(errrate_pit, columns=alg_list).to_csv('.\\result\\error_rate_pitcher.csv')
 
