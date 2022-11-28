@@ -10,7 +10,6 @@ class apply_sgd:
     def batter():
         print('\n===============BATTER=================')
 
-        #data_url='.\dataset\Dataset_Batter.csv'
         csv = pd.read_csv('.\dataset\Dataset_Batter_.csv')
         valcsv=pd.read_csv('.\dataset\Validation_Batter_.csv')
 
@@ -24,7 +23,7 @@ class apply_sgd:
                             SGDRegressor(max_iter=1000, tol=1e-3))
         reg.fit(data, label)
         result=reg.predict(valdata)
-        print('\nSGD')
+        print('SGD')
         print(result)
         return result
 
@@ -44,6 +43,6 @@ class apply_sgd:
                             SGDRegressor(max_iter=1000, tol=1e-3))
         regp.fit(datap, labelp)
         result=regp.predict(valdatap)
-        print('\nSGD')
+        print('SGD')
         print(result)
         return result
