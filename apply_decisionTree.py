@@ -1,12 +1,7 @@
 import pandas as pd
-from sklearn.linear_model import LinearRegression
-from sklearn import linear_model    #Lasso
-from sklearn.linear_model import SGDRegressor   #SGD
-from sklearn.pipeline import make_pipeline  #SGD
-from sklearn.preprocessing import StandardScaler    #SGD
-from sklearn.linear_model import Ridge  #Ridge
+from sklearn import tree
 
-class apply_Ridge:
+class apply_decisionTree:
     def batter():
         print('\n===============BATTER=================')
 
@@ -18,11 +13,11 @@ class apply_Ridge:
 
         valdata=valcsv[["연도","생년월일","AVG","AB","R","H","HR","RBI","BB","SO","OBP","OPS","RISP"]]
 
-        #Ridge
-        clfb=linear_model.Ridge(alpha=1.0)
-        clfb.fit(data, label)
-        result=clfb.predict(valdata)
-        print('\nRidge')
+        #Decision Tree
+        clf = tree.DecisionTreeRegressor()
+        clf.fit(data,label)
+        result = clf.predict(valdata)
+        print('Decision Tree')
         print(result)
         return result
 
@@ -37,10 +32,10 @@ class apply_Ridge:
 
         valdatap=valcsvp[["연도","생년월일","ERA","G","W","L","SV","HLD","WPCT","H","HR","BB","HBP","SO","R","ER","WHIP"]]
 
-        #Ridge
-        clfp=linear_model.Ridge(alpha=1.0)
-        clfp.fit(datap, labelp)
-        result=clfp.predict(valdatap)
-        print('\nRidge')
+        #Decision Tree
+        clfp = tree.DecisionTreeRegressor()
+        clfp.fit(datap,labelp)
+        result = clfp.predict(valdatap)
+        print('Decision Tree')
         print(result)
         return result
