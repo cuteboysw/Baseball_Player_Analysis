@@ -91,9 +91,12 @@ errrate_pit=np.concatenate((errrate_pit, (predict_pitcher-pitcorrect)/predict_pi
 alg_list=['SGD', 'Linear Regression', 'Lasso', 'Ridge', 'Logistic Regression', 'k-neighbors_regression', 'Decision Tree']   #Regression Algorithm List
 errrate_bat=errrate_bat.reshape(-1, 7)
 errrate_pit=errrate_pit.reshape(-1, 7)
-df=pd.DataFrame(errrate_bat, columns=alg_list).to_csv('.\\result\\error_rate_batter.csv')
-df=pd.DataFrame(errrate_pit, columns=alg_list).to_csv('.\\result\\error_rate_pitcher.csv')
+try:
+    if not os.path.exists('.\\error_rate'):
+        os.makedirs('.\\error_rate')
+except OSError:
+    print ('Error whlie making a directory for result')
+df=pd.DataFrame(errrate_bat, columns=alg_list).to_csv('.\\error_rate\\error_rate_batter.csv')
+df=pd.DataFrame(errrate_pit, columns=alg_list).to_csv('.\\error_rate\\error_rate_pitcher.csv')
 bat_index=np.arange(0, 38)
-bat_index=bat_index.reshape(-1, 38)
-print(errrate_bat[:, 0])
-errrate_pyplot.run(bat_index, errrate_bat[:, 0], 37)
+errrate_pyplot.run(bat_index, errrate_bat, 7)
