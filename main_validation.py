@@ -6,7 +6,6 @@ from apply_Ridge import *
 from apply_k_neighbors_regression import *
 from apply_LogisticRegression import *
 from apply_decisionTree import *
-import matplotlib.pyplot as plt
 import numpy as np
 import os
 from errrate_pyplot import *
@@ -96,7 +95,9 @@ except OSError:
     print ('Error whlie making a directory for result')
 df=pd.DataFrame(errrate_bat, columns=alg_list).to_csv('.\\error_rate\\error_rate_batter.csv')
 df=pd.DataFrame(errrate_pit, columns=alg_list).to_csv('.\\error_rate\\error_rate_pitcher.csv')
-bat_index=np.arange(0, 38)
+csvcnt=len(batcsv)
+bat_index=np.arange(0, csvcnt)
 errrate_pyplot.run(bat_index, errrate_bat, 'batter')
-pit_index=np.arange(0, 28)
+csvcnt=len(pitcsv)
+pit_index=np.arange(0, csvcnt)
 errrate_pyplot.run(pit_index, errrate_pit, 'pitcher')
