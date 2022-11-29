@@ -30,8 +30,6 @@ df=pd.DataFrame({'예상연봉': predict_batter}).to_csv('.\\result\\sgd_batter.
 df=pd.DataFrame({'예상연봉': predict_pitcher}).to_csv('.\\result\\sgd_pitcher.csv')
 errrate_bat=(predict_batter-batcorrect)/predict_batter
 errrate_pit=(predict_pitcher-pitcorrect)/predict_pitcher
-print(errrate_pit)
-
 
 #LinearRegression
 regression=apply_LinearRegression
@@ -99,4 +97,6 @@ except OSError:
 df=pd.DataFrame(errrate_bat, columns=alg_list).to_csv('.\\error_rate\\error_rate_batter.csv')
 df=pd.DataFrame(errrate_pit, columns=alg_list).to_csv('.\\error_rate\\error_rate_pitcher.csv')
 bat_index=np.arange(0, 38)
-errrate_pyplot.run(bat_index, errrate_bat, 7)
+errrate_pyplot.run(bat_index, errrate_bat, 'batter')
+pit_index=np.arange(0, 28)
+errrate_pyplot.run(pit_index, errrate_pit, 'pitcher')

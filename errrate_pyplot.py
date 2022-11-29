@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 class errrate_pyplot:
-    def run(x, y, ycnt):
+    def run(x, y, commit):
         fig, ax = plt.subplots(nrows=2, ncols=4)
 
         ax[0, 0].plot(x, y[:, 0])
@@ -28,5 +28,5 @@ class errrate_pyplot:
 
         plt.subplots_adjust(hspace=0.6, wspace=0.5)
 
-        plt.savefig('.\\error_rate\\error_rate_pyplot.jpg')
+        plt.savefig('.\\error_rate\\error_rate_'+commit+'_pyplot.jpg')
         plt.show()
