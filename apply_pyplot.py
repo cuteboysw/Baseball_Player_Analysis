@@ -28,8 +28,8 @@ class apply_pyplot:
         
         for i in range(0, 6):
             fig, ax=plt.subplots(nrows=1, ncols=1)
-            ax.bar(x, y[i, :], label=alg_list[i])
-            ax.set(title='Prediction('+commit+')',
+            ax.bar(x, y[i, :])
+            ax.set(title='Prediction('+commit+') - '+alg_list[i],
             xlabel='Player Lists',
             ylabel='Expected Annual Income')
             ax.set_xticks(x)
