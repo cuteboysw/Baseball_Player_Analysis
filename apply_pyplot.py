@@ -7,19 +7,32 @@ class apply_pyplot:
         fig, ax=plt.subplots(nrows=1, ncols=1)
 
         for i in range(0, 6):
-            ax.plot(x, y[i, :], label=alg_list[i])
+            ax.bar(x, y[i, :], label=alg_list[i])
 
         ax.set(title='Prediction('+commit+')',
         xlabel='Player Lists',
         ylabel='Expected Annual Income')
         ax.set_xticks(x)
         fig.set_size_inches(15, 7)
-        
+
         plt.legend(
             shadow=True,
             fancybox=False,
-            loc="upper right"
+            loc="upper right",
+            framealpha=0.1
         )
-        plt.savefig('.\\result\\'+commit+'_pyplot.jpg')
+        plt.savefig('.\\Data_visualization_\\result_visual\\'+commit+'_total_bar.jpg')
         plt.show()
+
+        print('잠시만 기다려 주십시오. Please wait...')
         
+        for i in range(0, 6):
+            fig, ax=plt.subplots(nrows=1, ncols=1)
+            ax.bar(x, y[i, :], label=alg_list[i])
+            ax.set(title='Prediction('+commit+')',
+            xlabel='Player Lists',
+            ylabel='Expected Annual Income')
+            ax.set_xticks(x)
+            fig.set_size_inches(15, 7)
+            plt.savefig('.\\Data_visualization_\\result_visual\\'+commit+'_'+alg_list[i]+'_bar.jpg')
+            plt.close()

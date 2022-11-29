@@ -18,11 +18,17 @@ try:
 except OSError:
     print ('Error whlie making a directory for result')
 
-datapath=input('타자에 대한 Test data가 있는 경로를 입력하세요.(상대 경로도 괜찮습니다.) 기본 경로(.\\dataset\\TestData_Batter_csv)로 하시려면 알파벳 소문자 n을 입력하세요.')
+try:
+    if not os.path.exists('.\\Data_visualization_\\result_visual'):
+        os.makedirs('.\\Data_visualization_\\result_visual')
+except OSError:
+    print ('Error whlie making a directory for result')
+
+datapath=input('타자에 대한 Test data가 있는 경로를 입력하세요.(상대 경로도 괜찮습니다.) 기본 경로(.\\dataset\\TestData_Batter_csv)로 하시려면 알파벳 소문자 n을 입력하세요.\n')
 if(datapath=='n'):
     datapath='.\\dataset\\TestData_Batter_.csv'
 bat_path=pathlib.Path(datapath)
-datapath=input('타자에 대한 Test data가 있는 경로를 입력하세요.(상대 경로도 괜찮습니다.) 기본 경로(.\\dataset\\TestData_Pitcher_csv)로 하시려면 알파벳 소문자 n을 입력하세요.')
+datapath=input('타자에 대한 Test data가 있는 경로를 입력하세요.(상대 경로도 괜찮습니다.) 기본 경로(.\\dataset\\TestData_Pitcher_csv)로 하시려면 알파벳 소문자 n을 입력하세요.\n')
 if(datapath=='n'):
     datapath='.\\dataset\\TestData_Pitcher_.csv'
 pit_path=pathlib.Path(datapath)
@@ -97,13 +103,10 @@ predset_pitcher=np.concatenate((predset_pitcher, predict_pitcher), axis=0)
 alg_list=['SGD', 'Linear Regression', 'Lasso', 'Ridge', 'Logistic Regression', 'k-neighbors_regression', 'Decision Tree']   #Regression Algorithm List
 predset_batter=predset_batter.reshape(-1, 7)
 predset_pitcher=predset_pitcher.reshape(-1, 7)
-try:
-    if not os.path.exists('.\\error_rate'):
-        os.makedirs('.\\error_rate')
-except OSError:
-    print ('Error whlie making a directory for result')
 df=pd.DataFrame(predset_batter, columns=alg_list).to_csv('.\\result\\total_prediction_batter.csv')
 df=pd.DataFrame(predset_pitcher, columns=alg_list).to_csv('.\\result\\total_prediction_pitcher.csv')
+print('전체 예측 결과가 result 폴더 내에 저장되었습니다.')
+print('잠시 후 예측 결과 그래프가 별도의 창에 표시됩니다.')
 csvcnt=len(batcsv)
 bat_index=np.arange(0, csvcnt)
 apply_pyplot.run(bat_index, predset_batter.T, 'batter', alg_list)
