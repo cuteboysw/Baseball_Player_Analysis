@@ -18,8 +18,10 @@ Type the commands.
 apt-get install git
 clone https://github.com/cuteboysw/Baseball_Player_Analysis/archive/refs/heads/main.zip
 cd ./Baseball_Player_Analysis
-git checkout ubuntu
+git pull origin ubuntu
 ```
+
+If terminal requests merge massage, please exit(^X).
 
 ### 1.2. Intall package needed
 ```
