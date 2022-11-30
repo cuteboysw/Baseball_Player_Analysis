@@ -21,7 +21,7 @@ class apply_pyplot:
             loc="upper right",
             framealpha=0.1
         )
-        plt.savefig('.\\Data_visualization_\\result_visual\\'+commit+'_total_bar.jpg')
+        plt.savefig('./Data_visualization_/result_visual/'+commit+'_total_bar.jpg')
         plt.show()
 
         print('잠시만 기다려 주십시오. Please wait...')
@@ -34,5 +34,5 @@ class apply_pyplot:
             ylabel='Expected Annual Income')
             ax.set_xticks(x)
             fig.set_size_inches(15, 7)
-            plt.savefig('.\\Data_visualization_\\result_visual\\'+commit+'_'+alg_list[i]+'_bar.jpg')
+            plt.savefig('./Data_visualization_/result_visual/'+commit+'_'+alg_list[i]+'_bar.jpg')
             plt.close()

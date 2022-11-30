@@ -28,5 +28,5 @@ class errrate_pyplot:
 
         plt.subplots_adjust(hspace=0.6, wspace=0.5)
 
-        plt.savefig('.\\error_rate\\error_rate_'+commit+'_pyplot.jpg')
+        plt.savefig('./error_rate/error_rate_'+commit+'_pyplot.jpg')
         plt.show()

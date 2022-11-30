@@ -12,8 +12,8 @@ from errrate_pyplot import *
 import pathlib
 
 try:
-    if not os.path.exists('.\\result'):
-        os.makedirs('.\\result')
+    if not os.path.exists('./result'):
+        os.makedirs('./result')
 except OSError:
     print ('Error whlie making a directory for result')
 
@@ -29,8 +29,8 @@ pitcorrect=pitcsv["연봉(만원)"]
 regression=apply_sgd
 predict_batter=regression.batter(bat_path)
 predict_pitcher=regression.pitcher(pit_path)
-df=pd.DataFrame({'예상연봉': predict_batter}).to_csv('.\\result\\sgd_batter.csv')
-df=pd.DataFrame({'예상연봉': predict_pitcher}).to_csv('.\\result\\sgd_pitcher.csv')
+df=pd.DataFrame({'예상연봉': predict_batter}).to_csv('./result/sgd_batter.csv')
+df=pd.DataFrame({'예상연봉': predict_pitcher}).to_csv('./result/sgd_pitcher.csv')
 errrate_bat=(predict_batter-batcorrect)/predict_batter
 errrate_pit=(predict_pitcher-pitcorrect)/predict_pitcher
 
@@ -38,8 +38,8 @@ errrate_pit=(predict_pitcher-pitcorrect)/predict_pitcher
 regression=apply_LinearRegression
 regression.batter(bat_path)
 regression.pitcher(pit_path)
-df=pd.DataFrame({'예상연봉': predict_batter}).to_csv('.\\result\\LinearRegression_batter.csv')
-df=pd.DataFrame({'예상연봉': predict_pitcher}).to_csv('.\\result\\LinearRegression_pitcher.csv')
+df=pd.DataFrame({'예상연봉': predict_batter}).to_csv('./result/LinearRegression_batter.csv')
+df=pd.DataFrame({'예상연봉': predict_pitcher}).to_csv('./result/LinearRegression_pitcher.csv')
 errrate_bat=np.concatenate((errrate_bat, (predict_batter-batcorrect)/predict_batter), axis=0)
 errrate_pit=np.concatenate((errrate_pit, (predict_pitcher-pitcorrect)/predict_pitcher), axis=0)
 
@@ -47,8 +47,8 @@ errrate_pit=np.concatenate((errrate_pit, (predict_pitcher-pitcorrect)/predict_pi
 regression=apply_Lasso
 regression.batter(bat_path)
 regression.pitcher(pit_path)
-df=pd.DataFrame({'예상연봉': predict_batter}).to_csv('.\\result\\Lasso_batter.csv')
-df=pd.DataFrame({'예상연봉': predict_pitcher}).to_csv('.\\result\\Lasso_pitcher.csv')
+df=pd.DataFrame({'예상연봉': predict_batter}).to_csv('./result/Lasso_batter.csv')
+df=pd.DataFrame({'예상연봉': predict_pitcher}).to_csv('./result/Lasso_pitcher.csv')
 errrate_bat=np.concatenate((errrate_bat, (predict_batter-batcorrect)/predict_batter), axis=0)
 errrate_pit=np.concatenate((errrate_pit, (predict_pitcher-pitcorrect)/predict_pitcher), axis=0)
 
@@ -56,8 +56,8 @@ errrate_pit=np.concatenate((errrate_pit, (predict_pitcher-pitcorrect)/predict_pi
 regression=apply_Ridge
 regression.batter(bat_path)
 regression.pitcher(pit_path)
-df=pd.DataFrame({'예상연봉': predict_batter}).to_csv('.\\result\\Ridge_batter.csv')
-df=pd.DataFrame({'예상연봉': predict_pitcher}).to_csv('.\\result\\Ridge_pitcher.csv')
+df=pd.DataFrame({'예상연봉': predict_batter}).to_csv('./result/Ridge_batter.csv')
+df=pd.DataFrame({'예상연봉': predict_pitcher}).to_csv('./result/Ridge_pitcher.csv')
 errrate_bat=np.concatenate((errrate_bat, (predict_batter-batcorrect)/predict_batter), axis=0)
 errrate_pit=np.concatenate((errrate_pit, (predict_pitcher-pitcorrect)/predict_pitcher), axis=0)
 
@@ -65,8 +65,8 @@ errrate_pit=np.concatenate((errrate_pit, (predict_pitcher-pitcorrect)/predict_pi
 regression=apply_LogisticRegression
 regression.batter(bat_path)
 regression.pitcher(pit_path)
-df=pd.DataFrame({'예상연봉': predict_batter}).to_csv('.\\result\\LogisticRegression_batter.csv')
-df=pd.DataFrame({'예상연봉': predict_pitcher}).to_csv('.\\result\\LogisticRegression_pitcher.csv')
+df=pd.DataFrame({'예상연봉': predict_batter}).to_csv('./result/LogisticRegression_batter.csv')
+df=pd.DataFrame({'예상연봉': predict_pitcher}).to_csv('./result/LogisticRegression_pitcher.csv')
 errrate_bat=np.concatenate((errrate_bat, (predict_batter-batcorrect)/predict_batter), axis=0)
 errrate_pit=np.concatenate((errrate_pit, (predict_pitcher-pitcorrect)/predict_pitcher), axis=0)
 
@@ -74,8 +74,8 @@ errrate_pit=np.concatenate((errrate_pit, (predict_pitcher-pitcorrect)/predict_pi
 regression=apply_k_neighbors_regression
 regression.batter(bat_path)
 regression.pitcher(pit_path)
-df=pd.DataFrame({'예상연봉': predict_batter}).to_csv('.\\result\\k_neighbors_regression_egression_batter.csv')
-df=pd.DataFrame({'예상연봉': predict_pitcher}).to_csv('.\\result\\k_neighbors_regression__pitcher.csv')
+df=pd.DataFrame({'예상연봉': predict_batter}).to_csv('./result/k_neighbors_regression_egression_batter.csv')
+df=pd.DataFrame({'예상연봉': predict_pitcher}).to_csv('./result/k_neighbors_regression__pitcher.csv')
 errrate_bat=np.concatenate((errrate_bat, (predict_batter-batcorrect)/predict_batter), axis=0)
 errrate_pit=np.concatenate((errrate_pit, (predict_pitcher-pitcorrect)/predict_pitcher), axis=0)
 
@@ -83,8 +83,8 @@ errrate_pit=np.concatenate((errrate_pit, (predict_pitcher-pitcorrect)/predict_pi
 regression=apply_decisionTree
 regression.batter(bat_path)
 regression.pitcher(pit_path)
-df=pd.DataFrame({'예상연봉': predict_batter}).to_csv('.\\result\\decisionTree_batter.csv')
-df=pd.DataFrame({'예상연봉': predict_pitcher}).to_csv('.\\result\\decisionTree_pitcher.csv')
+df=pd.DataFrame({'예상연봉': predict_batter}).to_csv('./result/decisionTree_batter.csv')
+df=pd.DataFrame({'예상연봉': predict_pitcher}).to_csv('./result/decisionTree_pitcher.csv')
 errrate_bat=np.concatenate((errrate_bat, (predict_batter-batcorrect)/predict_batter), axis=0)
 errrate_pit=np.concatenate((errrate_pit, (predict_pitcher-pitcorrect)/predict_pitcher), axis=0)
 
@@ -93,12 +93,12 @@ alg_list=['SGD', 'Linear Regression', 'Lasso', 'Ridge', 'Logistic Regression', '
 errrate_bat=errrate_bat.reshape(-1, 7)
 errrate_pit=errrate_pit.reshape(-1, 7)
 try:
-    if not os.path.exists('.\\error_rate'):
-        os.makedirs('.\\error_rate')
+    if not os.path.exists('./error_rate'):
+        os.makedirs('./error_rate')
 except OSError:
     print ('Error whlie making a directory for result')
-df=pd.DataFrame(errrate_bat, columns=alg_list).to_csv('.\\error_rate\\error_rate_batter.csv')
-df=pd.DataFrame(errrate_pit, columns=alg_list).to_csv('.\\error_rate\\error_rate_pitcher.csv')
+df=pd.DataFrame(errrate_bat, columns=alg_list).to_csv('./error_rate/error_rate_batter.csv')
+df=pd.DataFrame(errrate_pit, columns=alg_list).to_csv('./error_rate/error_rate_pitcher.csv')
 csvcnt=len(batcsv)
 bat_index=np.arange(0, csvcnt)
 errrate_pyplot.run(bat_index, errrate_bat, 'batter')
