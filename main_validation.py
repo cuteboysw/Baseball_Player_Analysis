@@ -17,8 +17,8 @@ try:
 except OSError:
     print ('Error whlie making a directory for result')
 
-bat_path=pathlib.Path('.\dataset\Validation_Batter_.csv')
-pit_path=pathlib.Path('.\dataset\Validation_Pitcher_.csv')
+bat_path=pathlib.Path('./dataset/Validation_Batter_.csv')
+pit_path=pathlib.Path('./dataset/Validation_Pitcher_.csv')
 
 batcsv=pd.read_csv(bat_path)
 batcorrect=batcsv["연봉(만원)"]
