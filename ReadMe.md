@@ -16,7 +16,7 @@ Type the commands.
 
 ```
 apt-get install git
-clone https://github.com/cuteboysw/Baseball_Player_Analysis/archive/refs/heads/main.zip
+clone https://github.com/cuteboysw/Baseball_Player_Analysis.git
 cd ./Baseball_Player_Analysis
 git pull origin ubuntu
 ```
