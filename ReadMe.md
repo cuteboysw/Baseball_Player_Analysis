@@ -2,7 +2,7 @@
 
 ## 1. How to Install
 
-### 1.1. Project Clone
+### 1.1. Project Download
 
 #### 1.1.1. Windows
 
@@ -15,13 +15,10 @@ Click this link.
 Type the commands.
 
 ```
-apt-get install git
-clone https://github.com/cuteboysw/Baseball_Player_Analysis.git
-cd ./Baseball_Player_Analysis
-git pull origin ubuntu
+wget https://github.com/cuteboysw/Baseball_Player_Analysis/archive/refs/heads/ubuntu.zip
+unzip ubuntu.zip
+cd ./Baseball_Player_Analysis-ubuntu
 ```
-
-If terminal requests merge massage, please exit(^X).
 
 ### 1.2. Intall package needed
 ```
